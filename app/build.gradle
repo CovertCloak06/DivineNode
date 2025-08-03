@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.inexora.ai'
+    namespace 'com.divinenode'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.inexora.ai"
+        applicationId "com.divinenode"
         minSdk 26
         targetSdk 30
         versionCode 1
