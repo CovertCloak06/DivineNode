@@ -1,8 +1,21 @@
-app/build/
-app/build/
-.venv/
-# ignore virtual env and build artifacts
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
 .venv/
 venv/
+
+# Python distribution/build folders
 build/
 dist/
+*.egg-info/
+
+# Android build outputs
+app/build/
+
+# IDE/editor files
+*.swp
+*.idea/
+.vscode/
