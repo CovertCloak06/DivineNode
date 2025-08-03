@@ -1,4 +1,5 @@
 exclude: |
+  # ignore any virtual-env or build folders
   (^|/)\.venv/
   (^|/)venv/
   (^|/)build/
@@ -27,4 +28,3 @@ repos:
     rev: v1.5.1
     hooks:
       - id: mypy
-        args: [--config-file=mypy.ini]
