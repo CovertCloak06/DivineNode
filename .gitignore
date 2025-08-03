@@ -1,2 +1,21 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+
+# Python distribution/build folders
+build/
+dist/
+*.egg-info/
+
+# Android build outputs
 app/build/
-app/build/
+
+# IDE/editor files
+*.swp
+*.idea/
+.vscode/
