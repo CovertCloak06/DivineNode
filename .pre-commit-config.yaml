@@ -1,4 +1,3 @@
-# top-level exclude before any repos: block
 exclude: |
   (^|/)\.venv/
   (^|/)venv/
