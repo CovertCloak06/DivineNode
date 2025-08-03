@@ -205,7 +205,7 @@
     <style name="Theme.Material3.DynamicColors.Dark" parent="Theme.Material3.Dark">
     <item name="isMaterial3DynamicColorApplied">true</item>
 
-    
+
     <item name="colorPrimary">@color/m3_sys_color_dynamic_dark_primary</item>
     <item name="colorOnPrimary">@color/m3_sys_color_dynamic_dark_on_primary</item>
     <item name="colorPrimaryInverse">@color/m3_sys_color_dynamic_dark_inverse_primary</item>
@@ -252,7 +252,7 @@
     <item name="colorErrorContainer">@color/m3_sys_color_dark_error_container</item>
     <item name="colorOnErrorContainer">@color/m3_sys_color_dark_on_error_container</item>
 
-    
+
     <item name="android:textColorPrimary">@color/m3_dynamic_dark_default_color_primary_text</item>
     <item name="android:textColorPrimaryInverse">@color/m3_dynamic_default_color_primary_text</item>
     <item name="android:textColorSecondary">@color/m3_dynamic_dark_default_color_secondary_text</item>
@@ -270,7 +270,7 @@
     <style name="Theme.Material3.DynamicColors.Light" parent="Theme.Material3.Light">
     <item name="isMaterial3DynamicColorApplied">true</item>
 
-    
+
     <item name="colorPrimary">@color/m3_sys_color_dynamic_light_primary</item>
     <item name="colorOnPrimary">@color/m3_sys_color_dynamic_light_on_primary</item>
     <item name="colorPrimaryInverse">@color/m3_sys_color_dynamic_light_inverse_primary</item>
@@ -317,7 +317,7 @@
     <item name="colorErrorContainer">@color/m3_sys_color_light_error_container</item>
     <item name="colorOnErrorContainer">@color/m3_sys_color_light_on_error_container</item>
 
-    
+
     <item name="android:textColorPrimary">@color/m3_dynamic_default_color_primary_text</item>
     <item name="android:textColorPrimaryInverse">@color/m3_dynamic_dark_default_color_primary_text</item>
     <item name="android:textColorSecondary">@color/m3_dynamic_default_color_secondary_text</item>
@@ -335,7 +335,7 @@
     <style name="ThemeOverlay.Material3.DynamicColors.Dark" parent="">
     <item name="isMaterial3DynamicColorApplied">true</item>
 
-    
+
     <item name="colorPrimary">@color/m3_sys_color_dynamic_dark_primary</item>
     <item name="colorOnPrimary">@color/m3_sys_color_dynamic_dark_on_primary</item>
     <item name="colorPrimaryInverse">@color/m3_sys_color_dynamic_dark_inverse_primary</item>
@@ -383,7 +383,7 @@
     <item name="colorErrorContainer">@color/m3_sys_color_dark_error_container</item>
     <item name="colorOnErrorContainer">@color/m3_sys_color_dark_on_error_container</item>
 
-    
+
     <item name="android:textColorPrimary">@color/m3_dynamic_dark_default_color_primary_text</item>
     <item name="android:textColorPrimaryInverse">@color/m3_dynamic_default_color_primary_text</item>
     <item name="android:textColorSecondary">@color/m3_dynamic_dark_default_color_secondary_text</item>
@@ -401,7 +401,7 @@
     <style name="ThemeOverlay.Material3.DynamicColors.Light" parent="">
     <item name="isMaterial3DynamicColorApplied">true</item>
 
-    
+
     <item name="colorPrimary">@color/m3_sys_color_dynamic_light_primary</item>
     <item name="colorOnPrimary">@color/m3_sys_color_dynamic_light_on_primary</item>
     <item name="colorPrimaryInverse">@color/m3_sys_color_dynamic_light_inverse_primary</item>
@@ -449,7 +449,7 @@
     <item name="colorErrorContainer">@color/m3_sys_color_light_error_container</item>
     <item name="colorOnErrorContainer">@color/m3_sys_color_light_on_error_container</item>
 
-    
+
     <item name="android:textColorPrimary">@color/m3_dynamic_default_color_primary_text</item>
     <item name="android:textColorPrimaryInverse">@color/m3_dynamic_dark_default_color_primary_text</item>
     <item name="android:textColorSecondary">@color/m3_dynamic_default_color_secondary_text</item>
