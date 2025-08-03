@@ -1,3 +1,4 @@
+from src.db import Session
 from fastapi import FastAPI, File, UploadFile
 import io
 from PIL import Image
