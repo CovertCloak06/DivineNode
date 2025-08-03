@@ -1,3 +1,10 @@
+exclude: |
+  # ignore any virtual-env or build folders
+  (^|/)\.venv/|
+  (^|/)venv/|
+  (^|/)build/|
+  (^|/)dist/
+
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
