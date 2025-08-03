@@ -1,8 +1,11 @@
-import torch.nn as nn
-import torchvision.models as models
+import os
+from openai import OpenAI
+
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 
-def get_model(num_classes: int = 10):
-    model = models.resnet18(pretrained=False)
-    model.fc = nn.Linear(model.fc.in_features, num_classes)
-    return model
+def generate(prompt: str, model: str = "gpt-4"):
+    resp = client.chat.completions.create(
+        model=model, messages=[{"role": "user", "content": prompt}]
+    )
+    return resp.choices[0].message.content
