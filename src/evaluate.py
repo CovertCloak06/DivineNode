@@ -1,4 +1,5 @@
-import argparse, torch
+import argparse
+import torch
 from sklearn.metrics import confusion_matrix
 from data import get_dataloader
 from model import get_model

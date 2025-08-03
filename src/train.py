@@ -1,4 +1,5 @@
-import argparse, os
+import argparse
+import os
 import torch
 from torch import nn, optim
 from torch.utils.tensorboard import SummaryWriter
