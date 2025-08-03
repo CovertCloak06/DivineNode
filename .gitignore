@@ -1,3 +1,8 @@
 app/build/
 app/build/
 .venv/
+# ignore virtual env and build artifacts
+.venv/
+venv/
+build/
+dist/
