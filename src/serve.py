@@ -1,3 +1,4 @@
+
 from fastapi import FastAPI, File, UploadFile
 import io
 from PIL import Image
@@ -6,6 +7,14 @@ from model import get_model
 import torchvision.transforms as transforms
 
 app = FastAPI()
+
+
+# on startup:
+@app.on_event("startup")
+async def init_db():
+    Session()
+
+
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = get_model(num_classes=10).to(device)
 model.load_state_dict(torch.load("checkpoints/best.pth", map_location=device))
