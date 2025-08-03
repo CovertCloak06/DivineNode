@@ -1,4 +1,4 @@
-name: Build Inexora APK
+name: Build DivineNode APK
 
 on:
   push:
