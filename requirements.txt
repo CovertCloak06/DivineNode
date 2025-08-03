@@ -1,0 +1,11 @@
+torch>=1.13.0
+torchvision>=0.14.0
+tensorboard>=2.12.0
+dvc>=2.18.0
+optuna>=3.1.0
+fastapi>=0.95.0
+uvicorn[standard]>=0.22.0
+pre-commit>=3.3.0
+flake8>=6.0.0
+mypy>=1.5.0
+dvc[s3]>=2.18.0
