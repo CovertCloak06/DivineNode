@@ -1,0 +1,23 @@
+name: Copilot PR Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  pr-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v3
+
+      - name: Copilot PR Review
+        uses: AllyW/copilot-pr-review@v0.1.33
+        with:
+          APIKEY: ${{ secrets.APIKEY }}
+          ENDPOINT: ${{ secrets.ENDPOINT }}
+          AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_EVENT: ${{ toJSON(github.event) }}
+          code_suggest: True
+          pr_summary: True
+          pr_reset: True
