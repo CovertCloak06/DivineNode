@@ -1,0 +1,30 @@
+name: Deploy Multiple DivineNode Services
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Copilot Multi-Service Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout DivineNode
+        uses: actions/checkout@v3
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Deploy service
+        uses: fuji97/aws-ecs-copilot-deploy@v1
+        with:
+          environments: prod
+          workloads: backend frontend
+          bucket: my-s3-bucket
+          deploy-method: manual
