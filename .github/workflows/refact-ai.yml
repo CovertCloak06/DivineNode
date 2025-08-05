@@ -1,0 +1,1 @@
+name: Refact AI Code Review\n\non:\n  pull_request:\n    branches:\n      - main\n\njobs:\n  refact:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v3\n      - name: Refact AI Code Review\n        uses: refactai/refact-action@v1\n        with:\n          github_token: ${{ secrets.GITHUB_TOKEN }}
