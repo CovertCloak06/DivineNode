@@ -20,3 +20,4 @@ app/build/
 *.idea/
 .vscode/
 sentry-wizard
+sentry-wizard
