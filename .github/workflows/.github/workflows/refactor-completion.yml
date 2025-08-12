@@ -1,0 +1,120 @@
+name: Refactor Completion Notifier
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  verify-and-notify:
+    name: Verify refactor completion & notify
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verify refactor completion criteria
+        id: verify
+        run: |
+          set -e
+          echo "== Checking for legacy name occurrences =="
+          # Fail if 'Inexora' appears outside CHANGELOG.md (history allowed)
+          if grep -R "Inexora" -n . --exclude=CHANGELOG.md --exclude-dir=.git | grep -q "Inexora"; then
+            echo "Legacy 'Inexora' references still present outside CHANGELOG.md" >&2
+            exit 1
+          fi
+
+          echo "== Checking required governance & config files =="
+            # Adjust this list if any file names differ
+          required_files="LICENSE CODE_OF_CONDUCT.md CONTRIBUTING.md SECURITY.md ARCHITECTURE.md README.md .editorconfig .pre-commit-config.yaml"
+          missing=""
+          for f in $required_files; do
+            if [ ! -f "$f" ]; then
+              missing="$missing $f"
+            fi
+          done
+          if [ -n "$missing" ]; then
+            echo "Missing required files:$missing" >&2
+            exit 1
+          fi
+
+          echo "== Checking Android version 1.1.0 =="
+          if ! grep -R "versionName\\s*\"1.1.0\"" -n app/build.gradle* >/dev/null 2>&1; then
+            echo "Android versionName 1.1.0 not found." >&2
+            exit 1
+          fi
+
+          echo "== Checking optional Python version (pyproject.toml) =="
+          if [ -f pyproject.toml ]; then
+            if ! grep -q 'version *= *"1.1.0"' pyproject.toml; then
+              echo "pyproject.toml does not declare version 1.1.0" >&2
+              exit 1
+            fi
+          fi
+
+          echo "== Non-fatal: coverage badge mention in README =="
+          if ! grep -qi "coverage" README.md; then
+            echo "Coverage badge not mentioned (will not fail)."
+          fi
+
+          echo "All mandatory checks passed."
+
+      - name: Post completion comment (if merged refactor PR found)
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+
+            // Get recently merged PRs (limit to 40 for speed)
+            const { data: pulls } = await github.rest.pulls.list({
+              owner, repo, state: 'closed', per_page: 40
+            });
+
+            // Find the most recent merged PR whose title suggests the refactor
+            const refactorPR = pulls.find(pr =>
+              pr.merged_at &&
+              /Refactor/i.test(pr.title) &&
+              /DivineNode/i.test(pr.title)
+            );
+
+            if (!refactorPR) {
+              core.info('No merged DivineNode refactor PR found yet. Skipping notification.');
+              return;
+            }
+
+            // Avoid duplicate comment
+            const { data: comments } = await github.rest.issues.listComments({
+              owner, repo, issue_number: refactorPR.number, per_page: 100
+            });
+
+            if (comments.some(c => /DivineNode refactor complete/i.test(c.body))) {
+              core.info('Completion comment already present.');
+              return;
+            }
+
+            const checklist = [
+              'No legacy Inexora references (except CHANGELOG history)',
+              'Governance & security docs present',
+              'CI configs present',
+              'Version set to 1.1.0',
+            ];
+
+            const body =
+              '✅ DivineNode refactor complete. All acceptance criteria satisfied.\\n\\n' +
+              'Summary:\\n' +
+              checklist.map(i => '- ' + i).join('\\n');
+
+            await github.rest.issues.createComment({
+              owner, repo, issue_number: refactorPR.number, body
+            });
+
+            core.info(`Posted completion comment to PR #${refactorPR.number}`);
+
+      - name: Finish
+        run: echo "Refactor completion notifier workflow finished."
