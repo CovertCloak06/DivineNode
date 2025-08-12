@@ -4,15 +4,15 @@ plugins {
 }
 
 android {
-    namespace = "com.inexora.app"
+    namespace = "com.divinenode.app"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.inexora.app"
+        applicationId = "com.divinenode.app"
         minSdk = 24
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.1.0"
     }
 
     buildTypes {

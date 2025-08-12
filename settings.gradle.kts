@@ -14,5 +14,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "InexoraAndroid"
+rootProject.name = "DivineNodeAndroid"
 include(":app")

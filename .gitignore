@@ -14,15 +14,10 @@ dist/
 
 # Android build outputs
 app/build/
+.gradle/
+local.properties
 
 # IDE/editor files
 *.swp
 *.idea/
 .vscode/
-sentry-wizard
-sentry-wizard
-sentry-wizard
-sentry-wizard
-sentry-wizard
-sentry-wizard
-sentry-wizard
