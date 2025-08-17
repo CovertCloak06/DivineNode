@@ -11,15 +11,20 @@ buildscript {
 
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+dependencies {
+    implementation 'com.google.android.material:material:1.12.0'
+    testImplementation 'org.jetbrains.kotlin:kotlin-test:1.8.21'
+    testImplementation 'junit:junit:4.13.2'
+}
 
 android {
     namespace 'com.divinenode'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.divinenode"
         minSdk 26
-        targetSdk 30
+        targetSdk 34
         versionCode 2
         versionName "1.0.1"
     }

@@ -1,28 +1,42 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
-
-# Virtual environments
-.venv/
-venv/
-
-# Python distribution/build folders
+# Android / Kotlin / Gradle
+*.iml
+*.log
+.gradle/
 build/
-dist/
-*.egg-info/
+**/build/
+.idea/
+local.properties
+.DS_Store
+.cxx/
+.externalNativeBuild
+captures/
+.gradle/
+.gradle/**
 
-# Android build outputs
-app/build/
+# Kotlin/Java
+*.class
+*.jar
+*.war
+*.ear
 
-# IDE/editor files
-*.swp
-*.idea/
-.vscode/
-sentry-wizard
-sentry-wizard
-sentry-wizard
-sentry-wizard
-sentry-wizard
-sentry-wizard
-sentry-wizard
+# Gradle wrapper
+/.gradle
+/gradle-wrapper.jar
+
+# NDK
+obj/
+libs/
+
+# Android Studio
+/.idea
+/.idea/*
+!.idea/inspectionProfiles
+
+# JetBrains Rider (if present)
+.idea/
+*.sln
+*.csproj
+
+# Misc
+*.keystore
+*.jks
