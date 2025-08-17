@@ -10,7 +10,6 @@ local.properties
 .cxx/
 .externalNativeBuild
 captures/
-.gradle/
 .gradle/**
 
 # Kotlin/Java
@@ -20,7 +19,6 @@ captures/
 *.ear
 
 # Gradle wrapper
-/.gradle
 /gradle-wrapper.jar
 
 # NDK
@@ -31,11 +29,6 @@ libs/
 /.idea
 /.idea/*
 !.idea/inspectionProfiles
-
-# JetBrains Rider (if present)
-.idea/
-*.sln
-*.csproj
 
 # Misc
 *.keystore
