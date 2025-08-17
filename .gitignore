@@ -33,3 +33,9 @@ libs/
 # Misc
 *.keystore
 *.jks
+.venv/
+npm-audit.json
+pip-audit.json
+requirements.txt.bak
+*.bak
+*~
