@@ -1,0 +1,51 @@
+name: Python dependency audit
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  pip-audit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.12"
+
+      - name: Install project dependencies (if present)
+        shell: bash
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          elif [ -f pyproject.toml ]; then
+            python -m pip install -e .
+          fi
+
+      - name: Install pip-audit
+        run: python -m pip install pip-audit
+
+      - name: Run pip-audit and save JSON report
+        id: audit
+        shell: bash
+        run: |
+          pip-audit --format=json -o pip-audit.json || true
+          if [ -s pip-audit.json ]; then
+            echo "pip-audit produced pip-audit.json:"
+            cat pip-audit.json
+          else
+            echo "No audit output produced."
+          fi
+
+      - name: Upload pip-audit JSON report
+        uses: actions/upload-artifact@v4
+        with:
+          name: pip-audit-report
+          path: pip-audit.json
