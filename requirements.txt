@@ -99,3 +99,9 @@ websockets==15.0.1
 wheel==0.45.1
 xyzservices==2025.4.0
 yarl==1.20.1
+
+# ML Dependencies
+torch>=2.8.0
+torchvision>=0.23.0
+scikit-learn>=1.7.0
+tensorboard>=2.20.0
