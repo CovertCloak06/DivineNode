@@ -33,3 +33,37 @@ libs/
 # Misc
 *.keystore
 *.jks
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+.env
+.venv/
+venv/
+ENV/
+.pytest_cache/
+.coverage
+*.egg-info/
+dist/
+
+# ML/Data
+logs/
+data/
+runs/
+*.pth
+*.ckpt
+*.h5
+*.pb
+
+# IDEs
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+Thumbs.db

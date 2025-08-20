@@ -1,10 +1,8 @@
 from sqlalchemy import Column, Integer, Text, create_engine
-from sqlalchemy.ext.declarative import DeclarativeBase
+from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-
-class Base(DeclarativeBase):
-    pass
+Base = declarative_base()
 
 
 engine = create_engine("sqlite:///conversations.db", echo=False)
