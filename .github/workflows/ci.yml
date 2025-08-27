@@ -1,1 +1,3 @@
-404: Not Found
+- name: Run diagnostic script
+  run: python .github/scripts/github```tions_diagnostic.py
+  continue-on-error: true
