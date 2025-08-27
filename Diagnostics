@@ -1,0 +1,10 @@
+- name: Run Diagnostics
+  run: |
+    echo "=== SYSTEM INFO ==="
+    python --version
+    pip --version
+    free -h
+    df -h
+    echo "=== ENVIRONMENT ==="
+    env | grep -E "(GITHUB_|RUNNER_|API_)" | sort
+  continue-on-error: true
